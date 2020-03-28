@@ -4,22 +4,22 @@ import java.time.LocalDate;
 
 public class TodoItem {
 
-    private String shortDesc;
+    private String description;
     private String details;
     private LocalDate deadline;
 
-    public TodoItem(String shortDesc, String details, LocalDate deadline) {
-        this.shortDesc = shortDesc;
+    public TodoItem(String description, String details, LocalDate deadline) {
+        this.description = description;
         this.details = details;
         this.deadline = deadline;
     }
 
-    public String getShortDesc() {
-        return shortDesc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setShortDesc(String shortDesc) {
-        this.shortDesc = shortDesc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getDetails() {
@@ -36,5 +36,10 @@ public class TodoItem {
 
     public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
+    }
+
+    @Override
+    public String toString() {
+        return description;
     }
 }
