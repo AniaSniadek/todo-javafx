@@ -70,9 +70,9 @@ public class TodoData {
             while(iter.hasNext()){
                 TodoItem item = iter.next();
                 bw.write(String.format("%s\t%s\t%s",
-                                        item.getDescription(),
-                                        item.getDetails(),
-                                        item.getDeadline().format(formatter)));
+                        item.getDescription(),
+                        item.getDetails(),
+                        item.getDeadline().format(formatter)));
 
                 bw.newLine();
             }
