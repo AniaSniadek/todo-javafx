@@ -1,0 +1,5 @@
+<?import javafx.scene.control.DialogPane?>
+
+<DialogPane fx:controller="sample.DialogController" xmlns:fx="http://javafx.com/fxml">
+
+</DialogPane>
