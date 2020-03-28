@@ -1,5 +1,5 @@
 Mail birthday card	Buy something	01-04-2020
-Mail birthday card	Buy something	15-04-2020
-Mail birthday card	Buy something	03-05-2020
-Mail birthday card	Buy something	20-04-2020
-Mail birthday card	Buy something	13-05-2020
+Do the laundry	Buy something 2	15-04-2020
+Go to the gym	Buy something 3	03-05-2020
+Sing something	Buy something 4	20-04-2020
+Play Witcher 3 on Play Station 4	Buy something 5	13-05-2020

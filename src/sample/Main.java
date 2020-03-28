@@ -32,4 +32,13 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
     }
+
+    @Override
+    public void init() throws Exception {
+        try {
+            TodoData.getInstance().loadTodoItems();
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

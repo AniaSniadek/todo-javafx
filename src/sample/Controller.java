@@ -28,25 +28,25 @@ public class Controller {
     private Label deadlineLabel;
 
     public void initialize(){
-        TodoItem item1 = new TodoItem("Mail birthday card", "Buy something",
-                LocalDate.of(2020, Month.APRIL, 01));
-        TodoItem item2 = new TodoItem("Mail birthday card", "Buy something",
-                LocalDate.of(2020, Month.APRIL, 15));
-        TodoItem item3 = new TodoItem("Mail birthday card", "Buy something",
-                LocalDate.of(2020, Month.MAY, 03));
-        TodoItem item4 = new TodoItem("Mail birthday card", "Buy something",
-                LocalDate.of(2020, Month.APRIL, 20));
-        TodoItem item5 = new TodoItem("Mail birthday card", "Buy something",
-                LocalDate.of(2020, Month.MAY, 13));
-
-        todoItems = new ArrayList<TodoItem>();
-        todoItems.add(item1);
-        todoItems.add(item2);
-        todoItems.add(item3);
-        todoItems.add(item4);
-        todoItems.add(item5);
-
-        TodoData.getInstance().setTodoItems(todoItems);
+//        TodoItem item1 = new TodoItem("Mail birthday card", "Buy something",
+//                LocalDate.of(2020, Month.APRIL, 01));
+//        TodoItem item2 = new TodoItem("Mail birthday card", "Buy something",
+//                LocalDate.of(2020, Month.APRIL, 15));
+//        TodoItem item3 = new TodoItem("Mail birthday card", "Buy something",
+//                LocalDate.of(2020, Month.MAY, 03));
+//        TodoItem item4 = new TodoItem("Mail birthday card", "Buy something",
+//                LocalDate.of(2020, Month.APRIL, 20));
+//        TodoItem item5 = new TodoItem("Mail birthday card", "Buy something",
+//                LocalDate.of(2020, Month.MAY, 13));
+//
+//        todoItems = new ArrayList<TodoItem>();
+//        todoItems.add(item1);
+//        todoItems.add(item2);
+//        todoItems.add(item3);
+//        todoItems.add(item4);
+//        todoItems.add(item5);
+//
+//        TodoData.getInstance().setTodoItems(todoItems);
 
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
@@ -60,7 +60,7 @@ public class Controller {
             }
         });
 
-        todoListView.getItems().setAll(todoItems);
+        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
     }
