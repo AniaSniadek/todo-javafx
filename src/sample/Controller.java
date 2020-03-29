@@ -4,7 +4,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import sample.datamodel.TodoData;
@@ -67,8 +66,9 @@ public class Controller {
         Optional<ButtonType> result = dialog.showAndWait();
         if(result.isPresent() && (result.get() == ButtonType.OK)){
             DialogController controller = fxmlLoader.getController();
-            controller.processResults();
-            System.out.println("Ok pressed");
+            TodoItem newItem = controller.processResults();
+            todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
+            todoListView.getSelectionModel().select(newItem);
         } else {
             System.out.println("Cancel pressed");
         }
