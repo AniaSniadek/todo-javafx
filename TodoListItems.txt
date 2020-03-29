@@ -6,3 +6,5 @@ Play Witcher 3 on Play Station 4	Buy something 5	13-05-2020
 new task	tralalallallala	03-03-2020
 new to do	ssafafsasa	05-04-2020
 test	testowy	31-03-2020
+dać jeść mopsiolowi	Mopsiol jest głodny	30-03-2020
+new red item	blablablabla	29-03-2020
