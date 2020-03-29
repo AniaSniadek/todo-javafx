@@ -80,6 +80,16 @@ public class Controller {
                     }
                 };
 
+                cell.emptyProperty().addListener(
+                        (obs, wasEmpty, isNowEmpty) -> {
+                            if(isNowEmpty){
+                                cell.setContextMenu(null);
+                            } else {
+                                cell.setContextMenu(listContextMenu);
+                            }
+                        }
+                );
+
                 return cell;
             }
         });
@@ -117,9 +127,9 @@ public class Controller {
     public void deleteItem(TodoItem item){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete item");
-        alert.setHeaderText("Delete item: " + item.getDescription());
+        alert.setHeaderText("Deleting item: " + item.getDescription());
         alert.setContentText("Are you sure that you want to delete this item?\n " +
-                            "Press OK to confirm, or Cancel to to stop the operation.");
+                            "Press OK to confirm, or Cancel to cancel.");
 
         Optional<ButtonType> result = alert.showAndWait();
         if(result.isPresent() && (result.get() == ButtonType.OK)){
