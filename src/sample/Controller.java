@@ -3,51 +3,31 @@ package sample;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TextArea;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import sample.datamodel.TodoData;
 import sample.datamodel.TodoItem;
 
-import java.time.LocalDate;
-import java.time.Month;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Controller {
 
     @FXML
     private ListView<TodoItem> todoListView;
     private List<TodoItem> todoItems;
-
     @FXML
     private TextArea itemDetailsTextArea;
     @FXML
     private Label deadlineLabel;
+    @FXML
+    private BorderPane mainBorderPane;
 
     public void initialize(){
-//        TodoItem item1 = new TodoItem("Mail birthday card", "Buy something",
-//                LocalDate.of(2020, Month.APRIL, 01));
-//        TodoItem item2 = new TodoItem("Mail birthday card", "Buy something",
-//                LocalDate.of(2020, Month.APRIL, 15));
-//        TodoItem item3 = new TodoItem("Mail birthday card", "Buy something",
-//                LocalDate.of(2020, Month.MAY, 03));
-//        TodoItem item4 = new TodoItem("Mail birthday card", "Buy something",
-//                LocalDate.of(2020, Month.APRIL, 20));
-//        TodoItem item5 = new TodoItem("Mail birthday card", "Buy something",
-//                LocalDate.of(2020, Month.MAY, 13));
-//
-//        todoItems = new ArrayList<TodoItem>();
-//        todoItems.add(item1);
-//        todoItems.add(item2);
-//        todoItems.add(item3);
-//        todoItems.add(item4);
-//        todoItems.add(item5);
-//
-//        TodoData.getInstance().setTodoItems(todoItems);
-
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
             public void changed(ObservableValue<? extends TodoItem> observableValue, TodoItem oldValue, TodoItem newValue) {
@@ -66,9 +46,27 @@ public class Controller {
     }
 
     @FXML
-    public void handleClickListView(){
-        TodoItem item = todoListView.getSelectionModel().getSelectedItem();
-        itemDetailsTextArea.setText(item.getDetails());
-        deadlineLabel.setText(item.getDeadline().toString());
+    public void showNewItemDialog(){
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("todoitemDialog.fxml"));
+            dialog.getDialogPane().setContent(root);
+        } catch (IOException e){
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if(result.isPresent() && (result.get() == ButtonType.OK)){
+            System.out.println("Ok pressed");
+        } else {
+            System.out.println("Cancel pressed");
+        }
     }
 }
