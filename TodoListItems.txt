@@ -4,5 +4,4 @@ Go to the gym	Buy something 3	03-05-2020
 Sing something	Buy something 4	20-04-2020
 Play Witcher 3 on Play Station 4	Buy something 5	13-05-2020
 new task	tralalallallala	03-03-2020
-new to do	ssafafsasa	05-04-2020
 test	testowy	31-03-2020
