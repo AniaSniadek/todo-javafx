@@ -2,6 +2,8 @@ package sample;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -28,8 +30,22 @@ public class Controller {
     private Label deadlineLabel;
     @FXML
     private BorderPane mainBorderPane;
+    @FXML
+    private ContextMenu listContextMenu;
 
     public void initialize(){
+        listContextMenu = new ContextMenu();
+        MenuItem deleteMenuItem = new MenuItem("Delete");
+        deleteMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+                deleteItem(item);
+            }
+        });
+
+        listContextMenu.getItems().addAll(deleteMenuItem);
+
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
             public void changed(ObservableValue<? extends TodoItem> observableValue, TodoItem oldValue, TodoItem newValue) {
@@ -57,7 +73,7 @@ public class Controller {
                             setText(null);
                         } else {
                             setText(todoItem.getDescription());
-                            if(todoItem.getDeadline().equals(LocalDate.now())){
+                            if(todoItem.getDeadline().isBefore(LocalDate.now().plusDays(1))){
                                 setTextFill(Color.RED);
                             }
                         }
@@ -96,5 +112,10 @@ public class Controller {
             TodoItem newItem = controller.processResults();
             todoListView.getSelectionModel().select(newItem);
         }
+    }
+
+    public void deleteItem(TodoItem item){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
     }
 }
