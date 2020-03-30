@@ -1,8 +1,4 @@
-Mail birthday card	Buy something	01-04-2020
-Do the laundry	Buy something 2	15-04-2020
-Go to the gym	Buy something 3	03-05-2020
-Sing something	Buy something 4	20-04-2020
-Play Witcher 3 on Play Station 4	Buy something 5	13-05-2020
-new task	tralalallallala	03-03-2020
-test	testowy	31-03-2020
-today	sadsdsadasdsa	30-03-2020
+Today	Testing	30-03-2020
+Do the Laundry	Black and white clothes	05-04-2020
+Go to the gym	I need to lose 5 kilos	13-04-2020
+Play on Play Station	Play online with friends	31-05-2020
