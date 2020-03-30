@@ -1,3 +1,4 @@
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +17,7 @@
                 </Menu>
             </MenuBar>
             <ToolBar>
-                <HBox>
+                <HBox spacing="10">
                     <Button onAction="#showNewItemDialog">
                         <tooltip>
                             <Tooltip text="Add a new task"/>
@@ -32,6 +33,11 @@
                         <tooltip>
                             <Tooltip text="Button Down: Show today's tasks only. Button Up: Show all tasks"/>
                         </tooltip>
+                        <HBox.margin>
+                            <Insets>
+                                <top>3</top>
+                            </Insets>
+                        </HBox.margin>
                     </ToggleButton>
                 </HBox>
             </ToolBar>
@@ -42,9 +48,9 @@
         </ListView>
     </left>
     <center>
-        <VBox style="-fx-background-color: white">
+        <VBox style="-fx-background-color: white; -fx-padding: 3 3 3 3">
             <TextArea fx:id="itemDetailsTextArea" VBox.vgrow="ALWAYS" wrapText="true"/>
-            <HBox>
+            <HBox style="-fx-padding: 3 3 3 3">
                 <Label text="Due: " style="-fx-background-color: white">
                     <font>
                         <Font name="Times New Roman bold" size="20"/>
