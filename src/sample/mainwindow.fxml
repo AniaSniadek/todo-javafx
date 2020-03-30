@@ -27,6 +27,12 @@
                             </ImageView>
                         </graphic>
                     </Button>
+                    <ToggleButton fx:id="filterToggleButton" text="Today's tasks"
+                                  onAction="#handleFilterButton">
+                        <tooltip>
+                            <Tooltip text="Button Down: Show today's tasks only. Button Up: Show all tasks"/>
+                        </tooltip>
+                    </ToggleButton>
                 </HBox>
             </ToolBar>
         </VBox>
